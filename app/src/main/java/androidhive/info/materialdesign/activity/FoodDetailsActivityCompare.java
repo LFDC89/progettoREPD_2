@@ -26,7 +26,7 @@ public class FoodDetailsActivityCompare extends ActionBarActivity
 {
     static int position;
     static int check = 0;
-    String[] food_positions = new String[2];
+    String[] indexes = new String[2];
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -119,21 +119,27 @@ public class FoodDetailsActivityCompare extends ActionBarActivity
 
     public void addFood_toCompare(View view)
     {
-        Intent food_postions_intent = new Intent(FoodDetailsActivityCompare.this, Compare.class);
+        String compare_indexes = DataPreferences.readPreference(view.getContext(), DataPreferences.COMP_FOODS, DataPreferences.COMP_KEY);
 
+        String position_string = Integer.toString(position);
+
+        //Toast msg = Toast.makeText(getApplicationContext(),compare_indexes,Toast.LENGTH_SHORT);
+        //msg.show();
         // check variable needs to verify that it's added only one food or two
         if(check == 1)
         {
-            food_positions[1] = String.valueOf(position);
+            Intent start_compare_activity = new Intent(FoodDetailsActivityCompare.this, Compare.class);
+            startActivity(start_compare_activity);
+            check = 0;
         }
 
         else if(check == 0)
         {
-            food_positions[0] = String.valueOf(position);
             check = 1;
         }
-        food_postions_intent.putExtra("Food_positions", food_positions);
-        startActivity(food_postions_intent);
+
+        DataPreferences.writePreference(getApplicationContext(), DataPreferences.COMP_FOODS, DataPreferences.COMP_KEY, position_string);
+
     }
 
 }

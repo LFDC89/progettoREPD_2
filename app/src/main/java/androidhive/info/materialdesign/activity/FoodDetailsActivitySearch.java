@@ -165,4 +165,10 @@ public class FoodDetailsActivitySearch extends ActionBarActivity
         return newPortion;
     }
 
+    public static double rounding(double x)
+    {
+        x = Math.floor(x*100);
+        x = x/100;
+        return x;
+    }
 }

@@ -214,4 +214,11 @@ public class FoodDetailsActivityHome extends ActionBarActivity
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(intent);
     }
+
+    public static double rounding(double x)
+    {
+        x = Math.floor(x*100);
+        x = x/100;
+        return x;
+    }
 }

@@ -1,22 +1,235 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="androidhive.info.materialdesign.activity.Compare">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+        android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        tools:context="androidhive.info.materialdesign.activity.Compare">
 
-    <TextView
-        android:id="@+id/prova"
-        android:text="hello_world"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/activity_compare_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:textColor="@color/textColorPrimary"
+            android:textSize="35dp"
+            android:textStyle="normal"
+            android:text="Comparison Foods"
+            />
 
-    <TextView
-        android:id="@+id/prova2"
-        android:text="hello_world"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/prova"/>
+        <LinearLayout
+            android:id="@+id/activity_compare_linear_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_below="@+id/activity_compare_title">
 
-</RelativeLayout>
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+                <TextView
+                    android:id="@+id/activity_compare_food_A"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="#00BFA5"
+                    android:textSize="25dp"
+                    android:text="Food A"
+                    />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+                <TextView
+                    android:id="@+id/activity_compare_vs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="@color/textColorPrimary"
+                    android:textSize="25dp"
+                    android:text="vs"
+                    />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+                <TextView
+                    android:id="@+id/activity_compare_food_B"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="#F44336"
+                    android:textSize="25dp"
+                    android:text="Food B"
+                    />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <!-- KCAL PROGRESS BAR STUFF -->
+        <TextView
+            android:id="@+id/activity_compare_kcal_progress_bar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/activity_compare_linear_layout"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/textColorPrimary"
+            android:textSize="15dp"
+            android:text="Kcal"
+            />
+
+        <ProgressBar
+            android:id="@+id/activity_compare_kcal_foodA_progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/activity_compare_kcal_progress_bar_title"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:indeterminate="false"
+            android:progressTint="#00BFA5"
+            android:max="1000"
+            />
+
+        <ProgressBar
+            android:id="@+id/activity_compare_kcal_foodB_progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/activity_compare_kcal_foodA_progressBar"
+            android:layout_marginTop="3dp"
+            android:layout_centerHorizontal="true"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:indeterminate="false"
+            android:progressTint="#F44336"
+            android:max="1000"
+            />
+
+        <!-- LIPIDS PROGRESS BAR STUFF -->
+        <TextView
+            android:id="@+id/activity_compare_lipids_progress_bar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/activity_compare_kcal_foodB_progressBar"
+            android:layout_marginTop="18dp"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/textColorPrimary"
+            android:textSize="15dp"
+            android:text="Lipids"
+            />
+
+        <ProgressBar
+            android:id="@+id/activity_compare_lipids_foodA_progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/activity_compare_lipids_progress_bar_title"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:indeterminate="false"
+            android:progressTint="#00BFA5"
+            android:max="30"
+            />
+
+        <ProgressBar
+            android:id="@+id/activity_compare_lipids_foodB_progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/activity_compare_lipids_foodA_progressBar"
+            android:layout_marginTop="3dp"
+            android:layout_centerHorizontal="true"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:indeterminate="false"
+            android:progressTint="#F44336"
+            android:max="30"
+            />
+
+        <!-- PROTEINS PROGRESS BAR STUFF -->
+        <TextView
+            android:id="@+id/activity_compare_proteins_progress_bar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/activity_compare_lipids_foodB_progressBar"
+            android:layout_marginTop="18dp"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/textColorPrimary"
+            android:textSize="15dp"
+            android:text="Proteins"
+            />
+
+        <ProgressBar
+            android:id="@+id/activity_compare_proteins_foodA_progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/activity_compare_proteins_progress_bar_title"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:indeterminate="false"
+            android:progressTint="#00BFA5"
+            android:max="30"
+            />
+
+        <ProgressBar
+            android:id="@+id/activity_compare_proteins_foodB_progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/activity_compare_proteins_foodA_progressBar"
+            android:layout_marginTop="3dp"
+            android:layout_centerHorizontal="true"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:indeterminate="false"
+            android:progressTint="#F44336"
+            android:max="30"
+            />
+
+        <!-- CARBOHYDRATES PROGRESS BAR STUFF -->
+        <TextView
+            android:id="@+id/activity_compare_carbohydrates_progress_bar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/activity_compare_proteins_foodB_progressBar"
+            android:layout_marginTop="18dp"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/textColorPrimary"
+            android:textSize="15dp"
+            android:text="Carbohydrates"
+            />
+
+        <ProgressBar
+            android:id="@+id/activity_compare_carbohydrates_foodA_progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/activity_compare_carbohydrates_progress_bar_title"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:indeterminate="false"
+            android:progressTint="#00BFA5"
+            android:max="100"
+            />
+
+        <ProgressBar
+            android:id="@+id/activity_compare_carbohydrates_foodB_progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/activity_compare_carbohydrates_foodA_progressBar"
+            android:layout_marginTop="3dp"
+            android:layout_centerHorizontal="true"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:indeterminate="false"
+            android:progressTint="#F44336"
+            android:max="100"
+            />
+    </RelativeLayout>
+</ScrollView>
