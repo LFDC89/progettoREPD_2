@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import androidhive.info.materialdesign.classes.DataPreferences;
+import androidhive.info.materialdesign.fragments.CompareSearchFragment;
 import androidhive.info.materialdesign.fragments.CreditsFragment;
 import androidhive.info.materialdesign.fragments.FragmentDrawer;
 import androidhive.info.materialdesign.fragments.HomeFragment;
@@ -116,6 +117,10 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
                 title    = getString(R.string.title_user_info_page);
                 break;
             case 3:
+                fragment = new CompareSearchFragment();
+                title = getString(R.string.title_fragment_compare);
+                break;
+            case 4:
                 fragment = new CreditsFragment();
                 title = getString(R.string.title_credits_page);
                 break;

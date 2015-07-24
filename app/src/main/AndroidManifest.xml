@@ -49,6 +49,17 @@
             android:label="@string/title_activity_food_details_activity_home" >
         </activity>
 
+        <activity
+            android:name=".activity.FoodDetailsActivityCompare"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/title_activity_food_details_activity_compare" >
+        </activity>
+        <activity
+            android:name=".activity.Compare"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/title_activity_compare" >
+        </activity>
+
     </application>
 
 </manifest>

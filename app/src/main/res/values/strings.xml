@@ -11,6 +11,7 @@
     <string name="nav_item_home">Home</string>
     <string name="nav_item_search">Search</string>
     <string name="nav_item_user_info">User Informations</string>
+    <string name="nav_item_compare">Compare Foods</string>
     <string name="nav_item_credits">Credits</string>
 
     <string name="title_home">Home</string>
@@ -24,12 +25,16 @@
     <string name="title_activity_fragment_container">FragmentContainer</string>
     <string name="title_activity_food_details">FoodDetails</string>
     <string name="title_activity_food_details_activity_home">FoodDetailsActivityHome</string>
+    <string name="title_fragment_compare">FragmentCompare</string>
+    <string name="title_activity_food_details_activity_compare">FoodDetailsActivityCompare</string>
+    <string name="title_activity_compare">Compare</string>
 
     <!-- navigation drawer item labels -->
     <string-array name="nav_drawer_labels">
         <item>@string/nav_item_home</item>
         <item>@string/nav_item_search</item>
         <item>@string/nav_item_user_info</item>
+        <item>@string/nav_item_compare</item>
         <item>@string/nav_item_credits</item>
     </string-array>
 

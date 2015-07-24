@@ -77,21 +77,21 @@ public class HomeFragment extends Fragment
 
         listView.setAdapter(mUserFoodAdapter);
 
-        // listView OnClick method
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener()
+        if(!start_data_string.equals("no food added"))
         {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id)
-            {
-                // start FoodDetailsActivityHome and send the current food position
-                Intent intent = new Intent(getActivity(), FoodDetailsActivityHome.class)
-                        .putExtra(Intent.EXTRA_TEXT, start_data_indexes[position]);
+            // listView OnClick method
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                    // start FoodDetailsActivityHome and send the current food position
+                    Intent intent = new Intent(getActivity(), FoodDetailsActivityHome.class)
+                            .putExtra(Intent.EXTRA_TEXT, start_data_indexes[position]);
 
-                // start the activity
-                startActivity(intent);
-            }
-        });
-
+                    // start the activity
+                    startActivity(intent);
+                }
+            });
+        }
 
 
         /* GRAPHIC STUFF */
@@ -173,6 +173,15 @@ public class HomeFragment extends Fragment
                 }
             }
         }
+
+        // getting username string
+        String temp_user_info = DataPreferences.readPreference(context, DataPreferences.PREFS_USER_INFO, DataPreferences.PUI_KEY);
+        String[] info = temp_user_info.split(",");
+        String username = info[0];
+        TextView username_textView = (TextView) rootView.findViewById(R.id.fragment_home_welcome);
+        username_textView.setTypeface(CF_nutrients_home);
+        String welcome = "Benvenuto " + username + "!";
+        username_textView.setText(welcome);
 
         // GET TOTAL USER KCAL
         kcal_total = get_user_kcal().intValue();
