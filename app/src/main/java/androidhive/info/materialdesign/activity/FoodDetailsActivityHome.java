@@ -192,5 +192,4 @@ public class FoodDetailsActivityHome extends ActionBarActivity
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(intent);
     }
-
 }

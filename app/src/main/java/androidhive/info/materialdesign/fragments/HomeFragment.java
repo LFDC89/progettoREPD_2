@@ -14,6 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -186,6 +187,7 @@ public class HomeFragment extends Fragment
         double percentage = (double) kcal_consumed/kcal_total * 100;
 
         kcal_percentage_textView.setText(String.valueOf(arrotondamento(percentage))+"%");
+
         // updating progress bar values
         final  ProgressBar progressBar = (ProgressBar) rootView.findViewById(R.id.fragment_home_progressBar);
         progressBar.setMax(kcal_total);
