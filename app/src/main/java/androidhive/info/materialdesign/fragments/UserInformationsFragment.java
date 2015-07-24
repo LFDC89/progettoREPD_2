@@ -125,19 +125,19 @@ public class UserInformationsFragment extends Fragment
 
         /*************************** SPINNER PHYSICAL ACTIVITY ***************************/
         // Create an ArrayAdapter using the string array and a default spinner layout
-        ArrayAdapter<CharSequence> phy_act_adapter = ArrayAdapter.createFromResource(context, R.array.physical_activity, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> phy_act_adapter = ArrayAdapter.createFromResource(getActivity(), R.array.physical_activity, android.R.layout.simple_spinner_item);
         // Specify the layout to use when the list of choices appears
         phy_act_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Apply the adapter to the spinner
         sp_psy_act.setAdapter(phy_act_adapter);
 
         /*************************** SPINNER GENDER ***************************/
-        ArrayAdapter<CharSequence> gender_adapter = ArrayAdapter.createFromResource(context, R.array.gender, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> gender_adapter = ArrayAdapter.createFromResource(getActivity(), R.array.gender, android.R.layout.simple_spinner_item);
         gender_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sp_gender.setAdapter(gender_adapter);
 
         /*************************** SPINNER WORK ***************************/
-        ArrayAdapter<CharSequence> work_adapter = ArrayAdapter.createFromResource(context, R.array.work_type, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> work_adapter = ArrayAdapter.createFromResource(getActivity(), R.array.work_type, android.R.layout.simple_spinner_item);
         work_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sp_work.setAdapter(work_adapter);
     }
