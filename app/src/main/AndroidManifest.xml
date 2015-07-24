@@ -19,12 +19,6 @@
             </intent-filter>
         </activity>
 
-        <!-- Insert Information Activity -->
-        <activity
-            android:name=".activity.InsertInformations"
-            android:label="@string/title_activity_insert_informations" >
-        </activity>
-
         <!-- Main Activity -->
         <activity
             android:name=".activity.MainActivity"
