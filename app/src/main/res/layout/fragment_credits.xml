@@ -1,0 +1,46 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="androidhive.info.materialdesign.fragments.CreditsFragment">
+
+    <TextView
+        android:id="@+id/fragment_credits_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/black"
+        android:textSize="45dp"
+        android:text="Credits"
+        />
+
+    <TextView
+        android:id="@+id/fragment_credits_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fragment_credits_title"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textColor="@color/textColorPrimary"
+        android:textSize="25dp"
+        android:text="Progetto di 'Reti e Programmazione Distribuita'\nA.A. 2014/2015\n\nUniversità Degli Studi Di Cassino e Del Lazio Meridionale\n\n\n\nSviluppato da:"
+        />
+
+    <TextView
+        android:id="@+id/fragment_credits_signatures"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fragment_credits_text"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:textColor="@color/textColorPrimary"
+        android:textSize="35dp"
+        android:text="Di Carlo Luca\nFierimonte Marco"
+
+        />
+</RelativeLayout>

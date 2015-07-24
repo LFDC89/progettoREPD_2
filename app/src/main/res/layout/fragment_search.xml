@@ -1,0 +1,27 @@
+<RelativeLayout
+    android:id="@+id/fragment_search_id"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <EditText android:id="@+id/search_edit_text"
+        android:hint="Search foods..."
+        android:inputType="text"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/black"
+        >
+    </EditText>
+
+    <ListView
+        android:id = "@+id/listview_foodslist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/search_edit_text"
+        />
+
+</RelativeLayout>

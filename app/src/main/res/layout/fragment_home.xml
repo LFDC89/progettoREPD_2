@@ -1,0 +1,187 @@
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="androidhive.info.materialdesign.fragments.HomeFragment">
+
+    <TextView
+        android:id="@+id/fragment_home_title"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:textSize="30dp"
+        android:text="Remaining Calories\n"
+        android:textColor="@color/black"
+        android:textStyle="normal"
+        />
+
+    <TextView
+        android:id="@+id/fragment_home_percentage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/fragment_home_title"
+        android:gravity="center"
+        android:textColor="@color/textColorPrimary"
+        android:textSize="20dp"
+        />
+
+    <ProgressBar
+        android:id="@+id/fragment_home_progressBar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fragment_home_percentage"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:progress="150"
+        android:max="300"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:indeterminate="false"
+        />
+
+    <RelativeLayout
+        android:id="@+id/fragment_home_kcal_relative_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fragment_home_progressBar"
+        android:layout_centerHorizontal="true">
+    <TextView
+        android:id="@+id/fragment_home_kcal_consumed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="italic"
+        android:textColor="@color/textColorPrimary"
+        android:text="calories consumed"
+        />
+
+    <TextView
+        android:id="@+id/fragment_home_separator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/fragment_home_kcal_consumed"
+        android:textStyle="italic"
+        android:text=" / "
+        />
+    <TextView
+        android:id="@+id/fragment_home_kcal_total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/fragment_home_separator"
+        android:textStyle="italic"
+        android:textColor="@color/textColorPrimary"
+        android:text="calories remaining"
+        />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/fragment_home_linear_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal"
+        android:layout_below="@+id/fragment_home_kcal_relative_layout"
+        android:baselineAligned="false">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/fragment_home_proteins"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="Proteins"
+                android:textColor="@color/black"
+                />
+
+            <TextView
+                android:id="@+id/fragment_home_proteins_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/fragment_home_proteins"
+                android:textColor="@color/textColorPrimary"
+                />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/fragment_home_carboidrats"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/black"
+                android:text="Carboidrats"
+                />
+
+            <TextView
+                android:id="@+id/fragment_home_carbohydrates_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/fragment_home_carboidrats"
+                android:textColor="@color/textColorPrimary"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/fragment_home_lipids"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/black"
+                android:text="Lipids"
+                />
+
+            <TextView
+                android:id="@+id/fragment_home_lipids_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/fragment_home_lipids"
+                android:textColor="@color/textColorPrimary"
+                />
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <Spinner
+        android:id="@+id/fragment_home_past_groups"
+        android:layout_width ="fill_parent"
+        android:layout_height="30dp"
+        android:layout_below="@+id/fragment_home_linear_layout"
+        android:layout_centerHorizontal="true"
+        android:entries="@array/past_groups"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:background="#FFE0B2"
+        android:textAlignment="center"
+        />
+
+    <ListView
+        android:id="@+id/fragment_home_listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/fragment_home_past_groups"
+        />
+</RelativeLayout>

@@ -1,0 +1,45 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="androidhive.info.materialdesign.fragments.HomeFragment">
+
+
+    <TextView
+        android:id="@+id/label"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="10dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="35dp"
+        android:text="Calorie Rimaste\n"
+        android:textColor="@color/black"
+        android:textStyle="normal"/>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:progressBackgroundTint="@color/white"
+        android:progressTint="@color/blue"
+        android:progress="150"
+        android:max="300"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_below="@+id/label"
+        android:indeterminate="false" />
+
+    <TextView
+        android:id="@+id/kcalratio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/progressBar"
+        android:layout_centerHorizontal="true"
+        android:textStyle="italic"
+        android:textColor="@color/black"
+        android:text="calorie consumate / calorie rimaste"
+        />
+
+</RelativeLayout>
