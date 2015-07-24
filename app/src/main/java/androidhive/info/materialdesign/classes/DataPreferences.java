@@ -41,26 +41,8 @@ public class DataPreferences
             }
             else
             {
-                // add only new food
-                String[] temp = user_foods_string.split(",");
-                int check = 0;
-
-                for (int i = 0;
-                     i < temp.length;
-                     i++)
-                {
-                    if (temp[i].equals(value))
-                    {
-                        check = 1;
-                        break;
-                    }
-                }
-
-                if (check == 0)
-                {
-                    editor.putString(key, user_foods_string + value + ",");
-                    editor.commit();
-                }
+                editor.putString(key, user_foods_string + value + ",");
+                editor.commit();
             }
         }
         else if (preference_name.equals(PREFS_USER_INFO))

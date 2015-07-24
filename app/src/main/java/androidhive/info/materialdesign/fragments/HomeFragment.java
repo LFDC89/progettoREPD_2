@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -141,8 +142,14 @@ public class HomeFragment extends Fragment
         {
             for (int i = 0; i < start_data_indexes.length; i++)
             {
+                // split info: position & portion
+                String[] split_info = start_data_indexes[i].split(":");
+
                 // obtain the index of the current food
-                int food_position = Integer.parseInt(start_data_indexes[i]);
+                int food_position      = Integer.parseInt(split_info[0]);
+                double current_portion = Double.parseDouble(split_info[1]);
+
+                Log.v(" ######  HOME FRAGMENT ---> ", food_position + ":" + current_portion);
 
                 // obtain the i-th food
                 Food temp_food = data.get(food_position);
@@ -153,16 +160,16 @@ public class HomeFragment extends Fragment
                 for (int j = 0; j < nut_temp_list.size(); j++)
                 {
                     if (nut_temp_list.get(j).getName().equals("Protein"))
-                        proteins = proteins + Double.parseDouble(nut_temp_list.get(j).getValue());
+                        proteins = proteins + (Double.parseDouble(nut_temp_list.get(j).getValue())*current_portion)/100;
 
                     else if (nut_temp_list.get(j).getName().equals("Total lipid (fat)"))
-                        lipids = lipids + Double.parseDouble(nut_temp_list.get(j).getValue());
+                        lipids = lipids + (Double.parseDouble(nut_temp_list.get(j).getValue())*current_portion)/100;
 
                     else if ((nut_temp_list.get(j).getName().equals("Carbohydrate, by difference")) || (nut_temp_list.get(j).getName().equals("Carbohydrate")))
-                        carbohydrates = carbohydrates + Double.parseDouble(nut_temp_list.get(j).getValue());
+                        carbohydrates = carbohydrates + (Double.parseDouble(nut_temp_list.get(j).getValue())*current_portion)/100;
 
                     else if (nut_temp_list.get(j).getName().equals("Energy"))
-                        kcal_consumed = kcal_consumed + Integer.parseInt(nut_temp_list.get(j).getValue());
+                        kcal_consumed = kcal_consumed + (Integer.parseInt(nut_temp_list.get(j).getValue())*(int)current_portion)/100;
                 }
             }
         }
@@ -198,6 +205,10 @@ public class HomeFragment extends Fragment
 
     public List<String> getUserFoods()
     {
+        // build starting data for the HomeFragment listView
+        List<String> start_data = new ArrayList<String>();
+
+
         // get all the foods data in the JSON file and stored in the FoodsData static class
         data = FoodsData.foodsData;
 
@@ -206,9 +217,6 @@ public class HomeFragment extends Fragment
 
         // split data indexes, because are separated with commas
         start_data_indexes = start_data_string.split(",");
-
-        // build starting data for the HomeFragment listView
-        List<String> start_data = new ArrayList<String>();
 
         // default case
         if (start_data_string.equals("no food added"))
@@ -223,14 +231,19 @@ public class HomeFragment extends Fragment
             for (int i = 0; i < start_data_indexes.length; i++)
             {
                 // obtain the index of the current food
-                int food_position = Integer.parseInt(start_data_indexes[i]);
+                String food_data = start_data_indexes[i];
+
+                // split info: position & portion
+                String[] split_info = food_data.split(":");
+
+                // obtain the index of the current food
+                int food_position = Integer.parseInt(split_info[0]);
 
                 // add food description in the listView
                 start_data.add(data.get(food_position).getDescription());
 
                 // just a LOG
                 // Log.d(" Home fragment: ----> ", data.get(food_position).getDescription());
-
             }
         }
 

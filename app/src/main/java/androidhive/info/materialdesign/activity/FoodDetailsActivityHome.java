@@ -39,7 +39,14 @@ public class FoodDetailsActivityHome extends ActionBarActivity
 
         if (intent != null && intent.hasExtra(Intent.EXTRA_TEXT))
         {
-            position = Integer.parseInt(intent.getStringExtra(Intent.EXTRA_TEXT));
+            // split info: position & portion
+            String food_received_info = intent.getStringExtra(Intent.EXTRA_TEXT);
+
+            // split info: position & portion
+            String[] split_info = food_received_info.split(":");
+
+            position               = Integer.parseInt(split_info[0]);
+            double current_portion = Double.parseDouble(split_info[1]);
 
             // point to all the data
             List<Food> temp = FoodsData.foodsData;
@@ -57,28 +64,43 @@ public class FoodDetailsActivityHome extends ActionBarActivity
             TextView foodNameHome = (TextView) findViewById(R.id.activity_food_details_home_textview_foodsName);
             Typeface future_font = Typeface.createFromAsset(getAssets(),"fonts/a song for jennifer.ttf");
             foodNameHome.setTypeface(future_font);
-
             foodNameHome.setText(food_name_home);
+
 
             String food_nutrients_home = new String();
 
-            for (int i = 0; i < temp_nut_list.size(); i++)
+            int kcal             = 0;
+            double lipids        = 0.0;
+            double carbohydrates = 0.0;
+            double current_nutrient      = 0.0;
+
+            for (int i = 0; i<temp_nut_list.size(); i++)
             {
-                if (!temp_nut_list.get(i).getName().equals("Carbohydrate, by difference"))
+                current_nutrient = (Double.parseDouble(temp_nut_list.get(i).getValue())*current_portion)/100;
+                if (temp_nut_list.get(i).getName().equals("Carbohydrate, by difference"))
                 {
                     // build the texts
-                    food_nutrients_home += ""//"         "
-                            + temp_nut_list.get(i).getName()
-                            + ":  " + temp_nut_list.get(i).getValue()
+                    food_nutrients_home += ""
+                            + "Carbohydrate"
+
+                            + ":  " + current_nutrient
+                            + "\n\n";
+                }
+                else if (temp_nut_list.get(i).getName().equals("Energy"))
+                {
+                    // build the texts
+                    food_nutrients_home += ""
+                            + "Kcal"
+                            + ":    " + current_nutrient
                             + "\n\n";
                 }
                 else
                 {
-                    // build the texts
-                    food_nutrients_home += ""//"         "
-                            + "Carbohydrate"
-                            + ":    " + temp_nut_list.get(i).getValue()
-                            + "\n\n";
+                        // build the texts
+                        food_nutrients_home += ""
+                                + temp_nut_list.get(i).getName()
+                                + ":    " + current_nutrient
+                                + "\n\n";
                 }
 
             }
