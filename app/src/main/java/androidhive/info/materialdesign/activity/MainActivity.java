@@ -17,6 +17,7 @@ import androidhive.info.materialdesign.fragments.CompareSearchFragment;
 import androidhive.info.materialdesign.fragments.CreditsFragment;
 import androidhive.info.materialdesign.fragments.FragmentDrawer;
 import androidhive.info.materialdesign.fragments.HomeFragment;
+import androidhive.info.materialdesign.fragments.PrintUserInformations;
 import androidhive.info.materialdesign.fragments.SearchFragment;
 import androidhive.info.materialdesign.R;
 import androidhive.info.materialdesign.fragments.UserInformationsFragment;
@@ -88,6 +89,15 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
             return true;
         }
 
+        if( id == R.id.action_settings)
+        {
+            CreditsFragment fragment = new CreditsFragment();
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.container_body, fragment);
+            fragmentTransaction.commit();
+            return true;
+        }
         return super.onOptionsItemSelected(item);
     }
 
@@ -113,14 +123,18 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
                 title = getString(R.string.title_search_page);
                 break;
             case 2:
-                fragment = new UserInformationsFragment();
-                title    = getString(R.string.title_user_info_page);
+                fragment = new PrintUserInformations();
+                title    = getString(R.string.title_fragment_print_user_informations);
                 break;
             case 3:
+                fragment = new UserInformationsFragment();
+                title    = getString(R.string.title_fragment_insert_user_informations);
+                break;
+            case 4:
                 fragment = new CompareSearchFragment();
                 title = getString(R.string.title_fragment_compare);
                 break;
-            case 4:
+            case 5:
                 fragment = new CreditsFragment();
                 title = getString(R.string.title_credits_page);
                 break;

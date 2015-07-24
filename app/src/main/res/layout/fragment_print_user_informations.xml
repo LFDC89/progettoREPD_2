@@ -1,0 +1,115 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="androidhive.info.materialdesign.fragments.PrintUserInformations">
+
+    <TextView
+        android:id="@+id/fragment_print_user_informations_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:textSize="30dp"
+        android:textColor="@color/textColorPrimary"
+        android:textStyle="normal"
+        android:text="User Informations Page"
+        />
+
+    <TextView
+        android:id="@+id/fragment_print_user_informations_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@+id/fragment_print_user_informations_title"
+        android:layout_marginTop="10dp"
+        android:textSize="20dp"
+        android:textColor="@color/textColorPrimary"
+        android:textStyle="normal"
+        />
+
+    <TextView
+        android:id="@+id/fragment_print_user_informations_age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fragment_print_user_informations_username"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="20dp"
+        android:textColor="@color/textColorPrimary"
+        android:textStyle="normal"
+        />
+
+    <TextView
+        android:id="@+id/fragment_print_user_informations_gender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@+id/fragment_print_user_informations_age"
+        android:layout_marginTop="10dp"
+        android:textSize="20dp"
+        android:textColor="@color/textColorPrimary"
+        android:textStyle="normal"
+        />
+
+    <TextView
+        android:id="@+id/fragment_print_user_informations_height"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@+id/fragment_print_user_informations_gender"
+        android:layout_marginTop="10dp"
+        android:textSize="20dp"
+        android:textColor="@color/textColorPrimary"
+        android:textStyle="normal"
+        />
+
+    <TextView
+        android:id="@+id/fragment_print_user_informations_weight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@+id/fragment_print_user_informations_height"
+        android:layout_marginTop="10dp"
+        android:textSize="20dp"
+        android:textColor="@color/textColorPrimary"
+        android:textStyle="normal"
+        />
+
+    <TextView
+        android:id="@+id/fragment_print_user_informations_physical_activity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@+id/fragment_print_user_informations_weight"
+        android:layout_marginTop="10dp"
+        android:textSize="20dp"
+        android:textColor="@color/textColorPrimary"
+        android:textStyle="normal"
+        />
+
+    <TextView
+        android:id="@+id/fragment_print_user_informations_work"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@id/fragment_print_user_informations_physical_activity"
+        android:layout_marginTop="10dp"
+        android:textSize="20dp"
+        android:textColor="@color/textColorPrimary"
+        android:textStyle="normal"
+        />
+
+    <TextView
+        android:id="@+id/fragment_print_user_informations_kcal_total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_below="@+id/fragment_print_user_informations_work"
+        android:layout_marginTop="10dp"
+        android:textSize="25dp"
+        android:textColor="@color/textColorPrimary"
+        android:textStyle="normal"
+        />
+</RelativeLayout>

@@ -23,9 +23,12 @@ public class Compare extends ActionBarActivity {
 
         Intent recieve_intent = getIntent();
 
-        String recived_string = recieve_intent.getExtras().getString("Food_positions");
+        String recived_string[] = recieve_intent.getExtras().getStringArray("Food_positions");
 
-        prova_textView.setText(recived_string);
+
+        prova_textView.setText(String.valueOf(recived_string[0]));
+        prova2_textView.setText(String.valueOf(recived_string[1]));
+
     }
 
     @Override
@@ -37,7 +40,8 @@ public class Compare extends ActionBarActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement

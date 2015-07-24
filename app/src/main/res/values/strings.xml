@@ -3,14 +3,15 @@
 
     <!-- string definition -->
     <string name="app_name">Infoodrmations</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_credits">Credits</string>
     <string name="action_search">Search</string>
     <string name="drawer_open">Open</string>
     <string name="drawer_close">Close</string>
 
     <string name="nav_item_home">Home</string>
     <string name="nav_item_search">Search</string>
-    <string name="nav_item_user_info">User Informations</string>
+    <string name="nav_item_print_user_info">User Informations</string>
+    <string name="nav_item_insert_user_info">Insert User Informations</string>
     <string name="nav_item_compare">Compare Foods</string>
     <string name="nav_item_credits">Credits</string>
 
@@ -18,22 +19,24 @@
     <string name="title_activity_start_page_activity">start_page_activity</string>
     <string name="title_search_page">Search</string>
     <string name="title_activity_start_page">StartPage</string>
-    <string name="title_activity_insert_informations">InsertInformations</string>
-    <string name="title_main_activity">MainActivity</string>
+    <string name="title_activity_insert_informations">Insert Informations</string>
+    <string name="title_main_activity">Main Activity</string>
     <string name="title_credits_page">Credits</string>
-    <string name="title_user_info_page">User Informations</string>
-    <string name="title_activity_fragment_container">FragmentContainer</string>
-    <string name="title_activity_food_details">FoodDetails</string>
-    <string name="title_activity_food_details_activity_home">FoodDetailsActivityHome</string>
-    <string name="title_fragment_compare">FragmentCompare</string>
-    <string name="title_activity_food_details_activity_compare">FoodDetailsActivityCompare</string>
+    <string name="title_fragment_insert_user_informations">Insert User Informations</string>
+    <string name="title_activity_fragment_container">Fragment Container</string>
+    <string name="title_activity_food_details">Food Details</string>
+    <string name="title_activity_food_details_activity_home">Food Details Activity Home</string>
+    <string name="title_fragment_compare">Fragment Compare</string>
+    <string name="title_activity_food_details_activity_compare">Food Details Activity Compare</string>
     <string name="title_activity_compare">Compare</string>
+    <string name="title_fragment_print_user_informations">Print User Informations</string>
 
     <!-- navigation drawer item labels -->
     <string-array name="nav_drawer_labels">
         <item>@string/nav_item_home</item>
         <item>@string/nav_item_search</item>
-        <item>@string/nav_item_user_info</item>
+        <item>@string/nav_item_print_user_info</item>
+        <item>@string/nav_item_insert_user_info</item>
         <item>@string/nav_item_compare</item>
         <item>@string/nav_item_credits</item>
     </string-array>
@@ -71,6 +74,9 @@
         <item>Dinner</item>
         <item>Snack</item>
     </string-array>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 

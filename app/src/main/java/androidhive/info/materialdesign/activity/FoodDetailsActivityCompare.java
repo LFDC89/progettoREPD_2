@@ -26,7 +26,7 @@ public class FoodDetailsActivityCompare extends ActionBarActivity
 {
     static int position;
     static int check = 0;
-    String food_positions = new String();
+    String[] food_positions = new String[2];
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -124,15 +124,13 @@ public class FoodDetailsActivityCompare extends ActionBarActivity
         // check variable needs to verify that it's added only one food or two
         if(check == 1)
         {
-            food_positions = food_positions + String.valueOf(position) + ",";
+            food_positions[1] = String.valueOf(position);
         }
 
         else if(check == 0)
         {
-            food_positions += String.valueOf(position) + ",";
+            food_positions[0] = String.valueOf(position);
             check = 1;
-            Intent turn_back = new Intent(getApplicationContext(), CompareSearchFragment.class);
-            startActivity(turn_back);
         }
         food_postions_intent.putExtra("Food_positions", food_positions);
         startActivity(food_postions_intent);
