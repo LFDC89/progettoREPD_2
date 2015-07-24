@@ -23,13 +23,13 @@ import androidhive.info.materialdesign.classes.DataPreferences;
 public class InsertInformations extends ActionBarActivity
 {
     EditText eT_username = null,
-            eT_age      = null,
-            eT_weight   = null,
-            eT_height   = null;
+             eT_age      = null,
+             eT_weight   = null,
+             eT_height   = null;
 
     Spinner  sp_gender  = null,
-            sp_psy_act = null,
-            sp_work    = null;
+             sp_psy_act = null,
+             sp_work    = null;
 
     Button   btn_calculate = null;
 
@@ -223,8 +223,9 @@ public class InsertInformations extends ActionBarActivity
         }
 
         // compute the daily calories needed
-
+        // Termogenesi Indotta Dieta (TID)
         daily_calories = basal_metabolism * 0.10;
+
         // add the works informations
         if (work.equals("Sedentary"))
         {
@@ -246,42 +247,42 @@ public class InsertInformations extends ActionBarActivity
         // add the physical activity informations
         if (phy_act.equals("Less than 3 hours a week"))
         {
-            phy_act_share = basal_metabolism * 6.5;
+            phy_act_share = basal_metabolism * 6.5/100;
             total_calories_needed = calories + phy_act_share;
         }
         else if (phy_act.equals("Less than 4 hours a week"))
         {
-            phy_act_share = basal_metabolism * 11;
+            phy_act_share = basal_metabolism * 11/100;
             total_calories_needed = calories + phy_act_share;
         }
         else if (phy_act.equals("Less than 5 hours a week"))
         {
-            phy_act_share = basal_metabolism * 15;
+            phy_act_share = basal_metabolism * 15/100;
             total_calories_needed = calories + phy_act_share;
         }
         else if (phy_act.equals("Less than 6 hours a week"))
         {
-            phy_act_share = basal_metabolism * 19;
+            phy_act_share = basal_metabolism * 19/100;
             total_calories_needed = calories + phy_act_share;
         }
         else if (phy_act.equals("Less than 7 hours a week"))
         {
-            phy_act_share = basal_metabolism * 23.5;
+            phy_act_share = basal_metabolism * 23.5/100;
             total_calories_needed = calories + phy_act_share;
         }
         else if (phy_act.equals("Less than 8 hours a week"))
         {
-            phy_act_share = basal_metabolism * 27.5;
+            phy_act_share = basal_metabolism * 27.5/100;
             total_calories_needed = calories + phy_act_share;
         }
         else if (phy_act.equals("Less than 9 hours a week"))
         {
-            phy_act_share = basal_metabolism * 31.5;
+            phy_act_share = basal_metabolism * 31.5/100;
             total_calories_needed = calories + phy_act_share;
         }
         else if (phy_act.equals("Less than 10 hours a week"))
         {
-            phy_act_share = basal_metabolism * 36;
+            phy_act_share = basal_metabolism * 36/100;
             total_calories_needed = calories + phy_act_share;
         }
 
