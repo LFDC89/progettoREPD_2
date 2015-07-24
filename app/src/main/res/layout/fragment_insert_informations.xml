@@ -2,7 +2,8 @@
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_height="fill_parent"
+    >
 
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -15,7 +16,7 @@
         android:paddingBottom="@dimen/activity_vertical_margin"
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
-        tools:context="androidhive.info.materialdesign.fragments.HomeFragment" >
+        tools:context="androidhive.info.materialdesign.fragments.UserInformationsFragment">
 
         <!--TITLE-->
         <TextView
@@ -26,7 +27,7 @@
             android:textColor="@color/black"
             android:textStyle="bold"
             android:gravity="center"
-            android:text="Calcola il tuo fabbisogno calorico giornaliero!"
+            android:text="Calculate your daily calorie needs!"
             android:layout_marginTop="5dp"/>
 
         <!--USERNAME-->
@@ -85,7 +86,7 @@
             android:id="@+id/insert_info_spinner_gender"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
+            android:textColor="@color/black"
             android:entries="@array/gender"/>
 
         <!--PHYSICAL ACTIVITY TITLE-->

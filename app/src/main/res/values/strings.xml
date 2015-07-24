@@ -3,15 +3,14 @@
 
     <!-- string definition -->
     <string name="app_name">Infoodrmations</string>
-
     <string name="action_settings">Settings</string>
     <string name="action_search">Search</string>
-
     <string name="drawer_open">Open</string>
     <string name="drawer_close">Close</string>
 
     <string name="nav_item_home">Home</string>
     <string name="nav_item_search">Search</string>
+    <string name="nav_item_user_info">User Informations</string>
     <string name="nav_item_credits">Credits</string>
 
     <string name="title_home">Home</string>
@@ -21,6 +20,7 @@
     <string name="title_activity_insert_informations">InsertInformations</string>
     <string name="title_main_activity">MainActivity</string>
     <string name="title_credits_page">Credits</string>
+    <string name="title_user_info_page">User Informations</string>
     <string name="title_activity_fragment_container">FragmentContainer</string>
     <string name="title_activity_food_details">FoodDetails</string>
     <string name="title_activity_food_details_activity_home">FoodDetailsActivityHome</string>
@@ -29,6 +29,7 @@
     <string-array name="nav_drawer_labels">
         <item>@string/nav_item_home</item>
         <item>@string/nav_item_search</item>
+        <item>@string/nav_item_user_info</item>
         <item>@string/nav_item_credits</item>
     </string-array>
 
@@ -38,7 +39,7 @@
         <item>Female</item>
     </string-array>
 
-    <!--  work type string array -->
+    <!-- work type string array -->
     <string-array name="work_type">
         <item>Sedentary</item>
         <item>Light</item>
@@ -65,5 +66,7 @@
         <item>Dinner</item>
         <item>Snack</item>
     </string-array>
+
+
 
 </resources>

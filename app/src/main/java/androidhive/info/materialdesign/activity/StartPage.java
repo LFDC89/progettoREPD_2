@@ -42,7 +42,7 @@ public class StartPage extends ActionBarActivity
                 while(FoodsData.foodsData == null);
 
                 // start the Activity
-                Intent openActivity = new Intent(StartPage.this, InsertInformations.class);
+                Intent openActivity = new Intent(StartPage.this, MainActivity.class);
                 startActivity(openActivity);
 
             }

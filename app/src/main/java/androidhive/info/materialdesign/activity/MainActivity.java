@@ -1,7 +1,6 @@
 package androidhive.info.materialdesign.activity;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -13,11 +12,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import androidhive.info.materialdesign.classes.DataPreferences;
 import androidhive.info.materialdesign.fragments.CreditsFragment;
 import androidhive.info.materialdesign.fragments.FragmentDrawer;
 import androidhive.info.materialdesign.fragments.HomeFragment;
 import androidhive.info.materialdesign.fragments.SearchFragment;
 import androidhive.info.materialdesign.R;
+import androidhive.info.materialdesign.fragments.UserInformationsFragment;
 
 
 /** The MainActivity is the Fragments' container **/
@@ -44,8 +45,19 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
         drawerFragment.setUp(R.id.fragment_navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout), mToolbar);
         drawerFragment.setDrawerListener(this);
 
-        // display the first navigation drawer view on app launch
-        displayView(0);
+        // retrieve user foods stored with SharedPreferences method (saved just the indexes)
+        String user_info = DataPreferences.readPreference(getApplicationContext(), DataPreferences.PREFS_USER_INFO, DataPreferences.PUI_KEY);
+
+        if (user_info.equals("no user info"))
+        {
+            // display the first navigation drawer view on app launch
+            displayView(2);
+        }
+        else
+        {
+            // display the first navigation drawer view on app launch
+            displayView(0);
+        }
 
     }
 
@@ -79,7 +91,8 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
     }
 
     @Override
-    public void onDrawerItemSelected(View view, int position) {
+    public void onDrawerItemSelected(View view, int position)
+    {
             displayView(position);
     }
 
@@ -99,9 +112,14 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
                 title = getString(R.string.title_search_page);
                 break;
             case 2:
+                fragment = new UserInformationsFragment();
+                title    = getString(R.string.title_user_info_page);
+                break;
+            case 3:
                 fragment = new CreditsFragment();
                 title = getString(R.string.title_credits_page);
                 break;
+
             default:
                 break;
         }

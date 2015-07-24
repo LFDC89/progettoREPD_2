@@ -1,15 +1,15 @@
-package androidhive.info.materialdesign.activity;
+package androidhive.info.materialdesign.fragments;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.view.inputmethod.EditorInfo;
-import android.widget.AdapterView;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,20 +18,25 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidhive.info.materialdesign.R;
+import androidhive.info.materialdesign.activity.MainActivity;
 import androidhive.info.materialdesign.classes.DataPreferences;
 
-public class InsertInformations extends ActionBarActivity
+
+public class UserInformationsFragment extends Fragment
 {
+    Context context = null;
+    View rootView   = null;
+
     EditText eT_username = null,
-             eT_age      = null,
-             eT_weight   = null,
-             eT_height   = null;
+            eT_age      = null,
+            eT_weight   = null,
+            eT_height   = null;
 
-    Spinner  sp_gender  = null,
-             sp_psy_act = null,
-             sp_work    = null;
+    Spinner sp_gender  = null,
+            sp_psy_act = null,
+            sp_work    = null;
 
-    Button   btn_calculate = null;
+    Button btn_calculate = null;
 
     String username = null;
     int height = 0;
@@ -41,25 +46,34 @@ public class InsertInformations extends ActionBarActivity
     String phy_act  = null;
     String gender   = null;
 
+    public UserInformationsFragment()
+    {
+        // Required empty public constructor
+    }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
+    public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+        context = getActivity().getApplicationContext();
+    }
 
-        // load the xml
-        setContentView(R.layout.activity_insert_informations);
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+    {
+        // inflate the fragment
+        rootView = inflater.inflate(R.layout.fragment_insert_informations, container, false);
 
         // set custom font on activity title
-        TextView InsertInformations_title_textView = (TextView) findViewById(R.id.activity_insert_informations_title);
-        Typeface CF_insert_informations_title = Typeface.createFromAsset(getAssets(),"fonts/a song for jennifer.ttf");
+        TextView InsertInformations_title_textView = (TextView) rootView.findViewById(R.id.activity_insert_informations_title);
+        Typeface CF_insert_informations_title = Typeface.createFromAsset(context.getAssets(),"fonts/a song for jennifer.ttf");
         InsertInformations_title_textView.setTypeface(CF_insert_informations_title);
 
         // set spinners values
         setSpinners();
 
         // BUTTON
-        btn_calculate = (Button) findViewById(R.id.insert_info_submit_button);
+        btn_calculate = (Button) rootView.findViewById(R.id.insert_info_submit_button);
 
         btn_calculate.setOnClickListener(new View.OnClickListener()
         {
@@ -73,56 +87,57 @@ public class InsertInformations extends ActionBarActivity
                 check = getEditsTextValues();
                 getSpinnerValues();
 
-                Log.d( " CHECK ------------------------> ", Integer.toString(check) );
+                Log.d(" CHECK ------------------------> ", Integer.toString(check));
 
                 if (check == 0)
                 {
                     double total_calories = calculate();
-                    Toast.makeText(InsertInformations.this, "TOTAL CALORIES: "+ Double.toString(total_calories), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "TOTAL CALORIES: " + Double.toString(total_calories), Toast.LENGTH_SHORT).show();
 
                     // store user informations with SharedPreferences
                     String user_info =  username + ","
-                                        + total_calories + ","
-                                        + gender + ","
-                                        + work + ","
-                                        + phy_act + ","
-                                        + Integer.toString(age) + ","
-                                        + Integer.toString(height) + ","
-                                        + Integer.toString(weight);
-                    DataPreferences.writePreference(getApplicationContext(), DataPreferences.PREFS_USER_INFO, DataPreferences.PUI_KEY, user_info);
+                            + total_calories + ","
+                            + gender + ","
+                            + work + ","
+                            + phy_act + ","
+                            + Integer.toString(age) + ","
+                            + Integer.toString(height) + ","
+                            + Integer.toString(weight);
+                    DataPreferences.writePreference(context, DataPreferences.PREFS_USER_INFO, DataPreferences.PUI_KEY, user_info);
 
 
                     // start the MainActivity
-                    Intent openMainActivity = new Intent(InsertInformations.this, MainActivity.class);
+                    Intent openMainActivity = new Intent(context, MainActivity.class);
                     startActivity(openMainActivity);
                 }
             }
         });
 
+        return rootView;
     }
 
     private void setSpinners()
     {
         // SPINNERS (find and fill)
-        sp_gender  = (Spinner) findViewById(R.id.insert_info_spinner_gender);
-        sp_psy_act = (Spinner) findViewById(R.id.insert_info_spinner_phys_act);
-        sp_work    = (Spinner) findViewById(R.id.insert_info_spinner_work);
+        sp_gender  = (Spinner) rootView.findViewById(R.id.insert_info_spinner_gender);
+        sp_psy_act = (Spinner) rootView.findViewById(R.id.insert_info_spinner_phys_act);
+        sp_work    = (Spinner) rootView.findViewById(R.id.insert_info_spinner_work);
 
         /*************************** SPINNER PHYSICAL ACTIVITY ***************************/
         // Create an ArrayAdapter using the string array and a default spinner layout
-        ArrayAdapter<CharSequence> phy_act_adapter = ArrayAdapter.createFromResource(this, R.array.physical_activity, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> phy_act_adapter = ArrayAdapter.createFromResource(context, R.array.physical_activity, android.R.layout.simple_spinner_item);
         // Specify the layout to use when the list of choices appears
         phy_act_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Apply the adapter to the spinner
         sp_psy_act.setAdapter(phy_act_adapter);
 
         /*************************** SPINNER GENDER ***************************/
-        ArrayAdapter<CharSequence> gender_adapter = ArrayAdapter.createFromResource(this, R.array.gender, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> gender_adapter = ArrayAdapter.createFromResource(context, R.array.gender, android.R.layout.simple_spinner_item);
         gender_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sp_gender.setAdapter(gender_adapter);
 
         /*************************** SPINNER WORK ***************************/
-        ArrayAdapter<CharSequence> work_adapter = ArrayAdapter.createFromResource(this, R.array.work_type, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> work_adapter = ArrayAdapter.createFromResource(context, R.array.work_type, android.R.layout.simple_spinner_item);
         work_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sp_work.setAdapter(work_adapter);
     }
@@ -130,10 +145,10 @@ public class InsertInformations extends ActionBarActivity
     private int getEditsTextValues()
     {
         // EDITS TEXT
-        eT_username = (EditText) findViewById(R.id.insert_info_editText_username);
-        eT_age      = (EditText) findViewById(R.id.insert_info_editText_age);
-        eT_height   = (EditText) findViewById(R.id.insert_info_editText_height);
-        eT_weight   = (EditText) findViewById(R.id.insert_info_editText_weight);
+        eT_username = (EditText) rootView.findViewById(R.id.insert_info_editText_username);
+        eT_age      = (EditText) rootView.findViewById(R.id.insert_info_editText_age);
+        eT_height   = (EditText) rootView.findViewById(R.id.insert_info_editText_height);
+        eT_weight   = (EditText) rootView.findViewById(R.id.insert_info_editText_weight);
 
         int check = 0;
 
@@ -148,22 +163,22 @@ public class InsertInformations extends ActionBarActivity
         if(username.length() <= 0)
         {
             check = 1;
-            Toast.makeText(InsertInformations.this, "Enter username", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Enter username", Toast.LENGTH_SHORT).show();
         }
         else if(temp_height.length() <= 0 || Integer.parseInt(temp_height)<20)
         {
             check = 1;
-            Toast.makeText(InsertInformations.this, "Enter correct height", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Enter correct height", Toast.LENGTH_SHORT).show();
         }
         else if(temp_weight.length() <= 0 || Integer.parseInt(temp_weight)<5)
         {
             check = 1;
-            Toast.makeText(InsertInformations.this, "Enter correct weight", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Enter correct weight", Toast.LENGTH_SHORT).show();
         }
         else if(temp_age.length() <= 0 || Integer.parseInt(temp_age)<=0)
         {
             check = 1;
-            Toast.makeText(InsertInformations.this, "Enter correct age", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Enter correct age", Toast.LENGTH_SHORT).show();
         }
 
         Log.d( " CHECK ------------------------>", temp_height + "-" + Integer.toString(temp_height.length()) );
@@ -289,29 +304,18 @@ public class InsertInformations extends ActionBarActivity
         return total_calories_needed;
     }
 
-
     @Override
-    public boolean onCreateOptionsMenu(Menu menu)
+    public void onAttach(Activity activity)
     {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_insert_informations, menu);
-        return true;
+        super.onAttach(activity);
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item)
+    public void onDetach()
     {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings)
-        {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
+        super.onDetach();
     }
+
+
+
 }

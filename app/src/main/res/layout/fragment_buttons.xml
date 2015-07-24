@@ -11,8 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_centerHorizontal="true"
-        android:entries="@array/past_groups"
-        >
+        android:entries="@array/past_groups">
     </Spinner>
 
     <Button
@@ -23,7 +22,6 @@
         android:layout_centerHorizontal="true"
         android:textColor="@color/black"
         android:textStyle="italic"
-        android:text="Aggiungi"
-        />
+        android:text="Aggiungi"/>
 
 </RelativeLayout>

@@ -14,7 +14,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -172,9 +171,9 @@ public class HomeFragment extends Fragment
         kcal_total = get_user_kcal().intValue();
 
         // update text view values
-        String proteins_string      = String.valueOf(arrotondamento(proteins));
-        String carbohydrates_string = String.valueOf(arrotondamento(carbohydrates));
-        String lipids_string        = String.valueOf(arrotondamento(lipids));
+        String proteins_string      = String.valueOf(rounding(proteins));
+        String carbohydrates_string = String.valueOf(rounding(carbohydrates));
+        String lipids_string        = String.valueOf(rounding(lipids));
 
         // display only the first 2 decimal values
         proteins_value_textView      .setText(proteins_string);
@@ -186,7 +185,7 @@ public class HomeFragment extends Fragment
 
         double percentage = (double) kcal_consumed/kcal_total * 100;
 
-        kcal_percentage_textView.setText(String.valueOf(arrotondamento(percentage))+"%");
+        kcal_percentage_textView.setText(String.valueOf(rounding(percentage))+"%");
 
         // updating progress bar values
         final  ProgressBar progressBar = (ProgressBar) rootView.findViewById(R.id.fragment_home_progressBar);
@@ -256,6 +255,14 @@ public class HomeFragment extends Fragment
             return default_value;
         }
     }
+
+    public static double rounding(double x)
+    {
+        x = Math.floor(x*100);
+        x = x/100;
+        return x;
+    }
+
     public void onAttach(Activity activity)
     {
         super.onAttach(activity);
@@ -267,10 +274,5 @@ public class HomeFragment extends Fragment
         super.onDetach();
     }
 
-    public static double arrotondamento(double x)
-    {
-        x = Math.floor(x*100);
-        x = x/100;
-        return x;
-    }
+
 }

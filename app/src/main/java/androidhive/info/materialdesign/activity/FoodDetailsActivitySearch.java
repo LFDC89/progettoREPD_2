@@ -30,7 +30,7 @@ public class FoodDetailsActivitySearch extends ActionBarActivity
     {
         super.onCreate(savedInstanceState);
 
-        final Button prova = (Button) findViewById(R.id.activity_food_details_search_tryButton);
+
         final Button button = (Button) findViewById(R.id.addButton);
 
         setContentView(R.layout.activity_food_details_search);
@@ -141,51 +141,53 @@ public class FoodDetailsActivitySearch extends ActionBarActivity
         startActivity(intent);
     }
 
-    public void prova(View view)
-    {
-         /* CUSTOM PORTION STUFF */
-        final EditText portion_input = (EditText) findViewById(R.id.activity_food_details_search_insertPortion);
-        double newPortion = 0.0;
-        double standardPortion = 100.0;
-        double oldNutrient = 0.0;
-        double newNutrient = 0.0;
 
-        // read value from editText and parsing to double
-        // if the user don't modify portion, this it's setted at the default value 100 in order to obtain a
-        // coefficient equals to 1
-        if(portion_input.length()<=0)
-            newPortion = 100.0;
-        else
-            newPortion = Double.parseDouble(portion_input.getText().toString());
-
-        // point to all the data
-        List<Food> temp = FoodsData.foodsData;
-
-        // add the position of the food
-        Food tmp_food = temp.get(position);
-
-        // extract the list of nutrients
-        List<Nutrient> tmp_nut_list = tmp_food.getNutList();
-
-        int nutListSize = tmp_nut_list.size();
-
-        double coefficient[] = new double[nutListSize];
-
-        String displayString = new String();
-        String nutrientName[] = new String[nutListSize];
-        String nutrientValue[] = new  String[nutListSize];
-
-        for(int i=0; i<tmp_nut_list.size();i++)
-        {
-            // shortcuts
-            nutrientName[i] = tmp_nut_list.get(i).getName();
-            nutrientValue[i] = tmp_nut_list.get(i).getValue();
-
-            // parsing string to double
-            oldNutrient = Double.parseDouble(nutrientValue[i]);
-
-            // coefficient calculation
-            coefficient[i] = oldNutrient / standardPortion;
-        }
-    }
+    //    public void prova(View view)
+    //    {
+    //         // CUSTOM PORTION STUFF
+    //        final EditText portion_input = (EditText) findViewById(R.id.activity_food_details_search_insertPortion);
+    //        double newPortion = 0.0;
+    //        double standardPortion = 100.0;
+    //        double oldNutrient = 0.0;
+    //        double newNutrient = 0.0;
+    //
+    //        // read value from editText and parsing to double
+    //        // if the user don't modify portion, this it's setted at the default value 100 in order to obtain a
+    //        // coefficient equals to 1
+    //        if(portion_input.length()<=0)
+    //            newPortion = 100.0;
+    //        else
+    //            newPortion = Double.parseDouble(portion_input.getText().toString());
+    //
+    //        // point to all the data
+    //        List<Food> temp = FoodsData.foodsData;
+    //
+    //        // add the position of the food
+    //        Food tmp_food = temp.get(position);
+    //
+    //        // extract the list of nutrients
+    //        List<Nutrient> tmp_nut_list = tmp_food.getNutList();
+    //
+    //        int nutListSize = tmp_nut_list.size();
+    //
+    //        double coefficient[] = new double[nutListSize];
+    //
+    //        String displayString = new String();
+    //        String nutrientName[] = new String[nutListSize];
+    //        String nutrientValue[] = new  String[nutListSize];
+    //
+    //        for(int i=0; i<tmp_nut_list.size();i++)
+    //        {
+    //            // shortcuts
+    //            nutrientName[i] = tmp_nut_list.get(i).getName();
+    //            nutrientValue[i] = tmp_nut_list.get(i).getValue();
+    //
+    //            // parsing string to double
+    //            oldNutrient = Double.parseDouble(nutrientValue[i]);
+    //
+    //            // coefficient calculation
+    //            coefficient[i] = oldNutrient / standardPortion;
+    //        }
+    //    }
+    //
 }

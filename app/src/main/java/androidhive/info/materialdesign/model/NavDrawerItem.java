@@ -1,7 +1,8 @@
 package androidhive.info.materialdesign.model;
 
 
-public class NavDrawerItem {
+public class NavDrawerItem
+{
     private boolean showNotify;
     private String title;
 
