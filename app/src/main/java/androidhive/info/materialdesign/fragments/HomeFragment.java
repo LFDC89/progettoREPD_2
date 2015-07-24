@@ -77,20 +77,21 @@ public class HomeFragment extends Fragment
 
         listView.setAdapter(mUserFoodAdapter);
 
-        // listView OnClick method
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener()
+        if(!start_data_string.equals("no food added"))
         {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id)
-            {
-                // start FoodDetailsActivityHome and send the current food position
-                Intent intent = new Intent(getActivity(), FoodDetailsActivityHome.class)
-                        .putExtra(Intent.EXTRA_TEXT, start_data_indexes[position]);
+            // listView OnClick method
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                    // start FoodDetailsActivityHome and send the current food position
+                    Intent intent = new Intent(getActivity(), FoodDetailsActivityHome.class)
+                            .putExtra(Intent.EXTRA_TEXT, start_data_indexes[position]);
 
-                // start the activity
-                startActivity(intent);
-            }
-        });
+                    // start the activity
+                    startActivity(intent);
+                }
+            });
+        }
 
 
 
