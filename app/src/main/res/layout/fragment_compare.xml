@@ -3,6 +3,18 @@
     android:layout_height="match_parent"
     tools:context="androidhive.info.materialdesign.fragments.CompareSearchFragment">
 
+    <TextView
+        android:id="@+id/fragment_compare_explanation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_centerHorizontal="true"
+        android:textSize="15dp"
+        android:textColor="@color/textColorPrimary"
+        android:text="To compare two foods, select them from this list, clicking on ADD TO COMPARE button."/>
+
     <EditText
         android:id="@+id/search_compare_edit_text"
         android:hint="Search foods..."
@@ -10,6 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_width="fill_parent"
         android:layout_marginTop="10dp"
+        android:layout_below="@+id/fragment_compare_explanation"
         android:textColor="@color/black"
         >
     </EditText>

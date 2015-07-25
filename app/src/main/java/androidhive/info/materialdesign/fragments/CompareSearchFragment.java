@@ -2,6 +2,7 @@ package androidhive.info.materialdesign.fragments;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.support.annotation.Nullable;
@@ -14,6 +15,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -64,6 +66,11 @@ public class CompareSearchFragment extends android.support.v4.app.Fragment
         );
 
         View rootView = inflater.inflate(R.layout.fragment_compare, container, false);
+
+        // getting explanation text view
+        TextView fragment_compare_explanation_textView = (TextView) rootView.findViewById(R.id.fragment_compare_explanation);
+        Typeface custom_font = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Girls_Have_Many Secrets.ttf");
+        fragment_compare_explanation_textView.setTypeface(custom_font);
 
         // input search EditText id and method for SEARCH FOOD
         EditText inputSearch = (EditText) rootView.findViewById(R.id.search_compare_edit_text);

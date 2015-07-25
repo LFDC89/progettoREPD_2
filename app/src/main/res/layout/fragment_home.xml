@@ -106,7 +106,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="#ff42a0ff">
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/circle_proteins">
 
             <TextView
                 android:id="@+id/fragment_home_proteins"
@@ -114,7 +117,7 @@
                 android:layout_height="30dp"
                 android:layout_centerHorizontal="true"
                 android:text="Proteins"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 />
 
             <TextView
@@ -123,7 +126,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_below="@+id/fragment_home_proteins"
-                android:textColor="@color/textColorPrimary"
+                android:textColor="@color/white"
                 />
         </RelativeLayout>
 
@@ -131,14 +134,17 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="#fffc4d5e">
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/circle_carbohydrates">
 
             <TextView
                 android:id="@+id/fragment_home_carboidrats"
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 android:layout_centerHorizontal="true"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:text="Carboidrats"
                 />
 
@@ -148,7 +154,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_below="@+id/fragment_home_carboidrats"
-                android:textColor="@color/textColorPrimary"
+                android:textColor="@color/white"
                 />
 
         </RelativeLayout>
@@ -157,14 +163,17 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="#ff8aff0a">
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/circle_lipids">
 
             <TextView
                 android:id="@+id/fragment_home_lipids"
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 android:layout_centerHorizontal="true"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:text="Lipids"
                 />
 
@@ -174,7 +183,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_below="@+id/fragment_home_lipids"
-                android:textColor="@color/textColorPrimary"
+                android:textColor="@color/white"
                 />
 
         </RelativeLayout>
