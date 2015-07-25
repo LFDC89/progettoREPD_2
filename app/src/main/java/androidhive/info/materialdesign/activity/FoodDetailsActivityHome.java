@@ -180,23 +180,24 @@ public class FoodDetailsActivityHome extends ActionBarActivity
         // relative index of delete object
         int delete_index = 0;
 
+        String position_string = String.valueOf(position);
+
+        String[] real_indexes = new String[start_data_indexes.length];
+        for(int i=0;i<start_data_indexes.length;i++)
+        {
+            String[] appo = start_data_indexes[i].split(":");
+            real_indexes[i] = appo[0];
+        }
+
         // founding the relative index corresponding to global index passed by argument
         for(int i=0;i<start_data_indexes.length;i++)
-            if(start_data_indexes[i].equals(String.valueOf(position)))
+            if(real_indexes[i].equals(position_string))
                 delete_index = i;
 
         // deleting the selected object
-        int j = 0;
-        for(int i = 0; i<delete_index; i++)
+        for(int i=delete_index;i<start_data_indexes.length-1;i++)
         {
-            new_indexes[j] = start_data_indexes[i];
-            j++;
-        }
-
-        for(int i = delete_index+1; i<start_data_indexes.length; i++)
-        {
-            new_indexes[j] = start_data_indexes[i];
-            j++;
+            start_data_indexes[i] = start_data_indexes[i+1];
         }
 
         // reset the user food data
@@ -207,8 +208,8 @@ public class FoodDetailsActivityHome extends ActionBarActivity
         editor.commit();
 
         // rebuilding user food data with new indexes array
-        for(int i=0; i<new_indexes.length; i++)
-           DataPreferences.writePreference(view.getContext(), DataPreferences.PREFS_USER_FOODS, DataPreferences.PUF_KEY, new_indexes[i]);
+        for(int i=0; i<start_data_indexes.length-1; i++)
+           DataPreferences.writePreference(view.getContext(), DataPreferences.PREFS_USER_FOODS, DataPreferences.PUF_KEY, start_data_indexes[i]);
 
         // starting HomeFragment
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);

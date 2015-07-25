@@ -150,7 +150,7 @@ public class SearchFragment extends Fragment
             String calories = temp_nut_list.get(3).getValue();
 
             // final string
-            String final_string = food_desc + "/n" + calories + " KCal/100gr ";
+            String final_string = food_desc;
 
             // update the ListView
             SearchFragment.mFoodsAdapter.add(final_string);

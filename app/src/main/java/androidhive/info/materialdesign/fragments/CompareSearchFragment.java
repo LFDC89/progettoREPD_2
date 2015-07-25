@@ -147,7 +147,7 @@ public class CompareSearchFragment extends android.support.v4.app.Fragment
             String calories = temp_nut_list.get(3).getValue();
 
             // final string
-            String final_string = food_desc + "/n" + calories + " KCal/100gr ";
+            String final_string = food_desc;
 
             // update the ListView
             CompareSearchFragment.mFoodsAdapter.add(final_string);

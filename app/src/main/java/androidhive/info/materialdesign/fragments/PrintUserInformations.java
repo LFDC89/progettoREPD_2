@@ -54,6 +54,11 @@ public class PrintUserInformations extends android.support.v4.app.Fragment {
             String height = info[6];
             String weight = info[7];
 
+            // rounding kcal tot at two decimal digits
+            double kcalTot = Double.parseDouble(kcal_tot);
+            kcalTot = rounding(kcalTot);
+            kcal_tot = String.valueOf(kcalTot);
+
             // putting data into Text Views
             username_textView.setText("USERNAME:  " + username);
             kcal_tot_textView.setText("\nDAILY KCAL REQUIREMENTS\n\n" + kcal_tot + " kcal");
@@ -87,4 +92,11 @@ public class PrintUserInformations extends android.support.v4.app.Fragment {
 
     @Override
     public void onDetach() {super.onDetach();}
+
+    public static double rounding(double x)
+    {
+        x = Math.floor(x*100);
+        x = x/100;
+        return x;
+    }
 }

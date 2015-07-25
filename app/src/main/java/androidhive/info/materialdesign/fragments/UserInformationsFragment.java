@@ -2,6 +2,7 @@ package androidhive.info.materialdesign.fragments;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -24,6 +25,8 @@ import androidhive.info.materialdesign.classes.DataPreferences;
 
 public class UserInformationsFragment extends Fragment
 {
+    String user_info_default;
+
     Context context = null;
     View rootView   = null;
 
@@ -69,27 +72,116 @@ public class UserInformationsFragment extends Fragment
         Typeface CF_insert_informations_title = Typeface.createFromAsset(context.getAssets(), "fonts/a song for jennifer.ttf");
         InsertInformations_title_textView.setTypeface(CF_insert_informations_title);
 
-        // set spinners values
-        setSpinners();
+        final String user_info_insert = DataPreferences.readPreference(rootView.getContext(),DataPreferences.PREFS_USER_INFO,DataPreferences.PUI_KEY);
 
-        // BUTTON
-        btn_calculate = (Button) rootView.findViewById(R.id.insert_info_submit_button);
+        // variable that rapresent if are present user informations or not
+        int profile_values = 0;
 
-        btn_calculate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        if(user_info_insert.equals("no user info"))
+            profile_values = 0;
+        else if(!user_info_insert.equals("no user info"))
+            profile_values = 1;
 
-                int check;
+        if(profile_values == 0)
+        {
+            // set spinners values
+            setSpinners();
 
-                // check the edits text values
-                check = getEditsTextValues();
-                getSpinnerValues();
+            // BUTTON
+            btn_calculate = (Button) rootView.findViewById(R.id.insert_info_submit_button);
 
-                Log.d(" CHECK ------------------------> ", Integer.toString(check));
+            btn_calculate.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
 
-                if (check == 0) {
+                    int check;
+
+                    // check the edits text values
+                    check = getEditsTextValues();
+                    getSpinnerValues();
+
+                    Log.d(" CHECK ------------------------> ", Integer.toString(check));
+
+                    if (check == 0) {
+                        double total_calories = calculate();
+                        Toast.makeText(context, "TOTAL CALORIES: " + Double.toString(total_calories), Toast.LENGTH_SHORT).show();
+
+                        // store user informations with SharedPreferences
+                        String user_info = username + ","
+                                + total_calories + ","
+                                + gender + ","
+                                + work + ","
+                                + phy_act + ","
+                                + Integer.toString(age) + ","
+                                + Integer.toString(height) + ","
+                                + Integer.toString(weight);
+                        DataPreferences.writePreference(context, DataPreferences.PREFS_USER_INFO, DataPreferences.PUI_KEY, user_info);
+
+
+                        // start the MainActivity
+                        Intent openMainActivity = new Intent(context, MainActivity.class);
+                        startActivity(openMainActivity);
+                    }
+                }
+            });
+        }
+
+        else if(profile_values == 1)
+        {
+            // set spinners values
+            setSpinners();
+
+            // BUTTON
+            btn_calculate = (Button) rootView.findViewById(R.id.insert_info_submit_button);
+
+            btn_calculate.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    int check;
+
+                    // EDITS TEXT
+                    eT_username = (EditText) rootView.findViewById(R.id.insert_info_editText_username);
+                    eT_age      = (EditText) rootView.findViewById(R.id.insert_info_editText_age);
+                    eT_height   = (EditText) rootView.findViewById(R.id.insert_info_editText_height);
+                    eT_weight   = (EditText) rootView.findViewById(R.id.insert_info_editText_weight);
+
+                    // Set edit text values
+                    String[] info = user_info_insert.split(",");
+
+                    // get edit text values
+                    username             = eT_username.getText().toString();
+                    String temp_height   = eT_height.getText().toString();
+                    String temp_weight   = eT_weight.getText().toString();
+                    String temp_age      = eT_age.getText().toString();
+
+                    // check edit text values
+                    if(username.length() <= 0)
+                    {
+                        username = info[0];
+                    }
+                    if(temp_height.length() <= 0 || Integer.parseInt(temp_height)<20)
+                    {
+                        temp_height = info[6];
+                    }
+                    if(temp_weight.length() <= 0 || Integer.parseInt(temp_weight)<5)
+                    {
+                        temp_weight = info[7];
+                    }
+                    if(temp_age.length() <= 0 || Integer.parseInt(temp_age)<=0)
+                    {
+                        temp_age = info[5];
+                    }
+
+                    setSpinners();
+
+                    age    = Integer.valueOf(temp_age);
+                    height = Integer.valueOf(temp_height);
+                    weight = Integer.valueOf(temp_weight);
+
+                    getSpinnerValues();
+
                     double total_calories = calculate();
-                    Toast.makeText(context, "TOTAL CALORIES: " + Double.toString(total_calories), Toast.LENGTH_SHORT).show();
 
                     // store user informations with SharedPreferences
                     String user_info = username + ","
@@ -102,13 +194,13 @@ public class UserInformationsFragment extends Fragment
                             + Integer.toString(weight);
                     DataPreferences.writePreference(context, DataPreferences.PREFS_USER_INFO, DataPreferences.PUI_KEY, user_info);
 
-
                     // start the MainActivity
                     Intent openMainActivity = new Intent(context, MainActivity.class);
                     startActivity(openMainActivity);
-                }
-            }
-        });
+                    }
+
+            });
+        }
 
         return rootView;
     }
@@ -132,7 +224,6 @@ public class UserInformationsFragment extends Fragment
         ArrayAdapter<CharSequence> gender_adapter = ArrayAdapter.createFromResource(getActivity(), R.array.gender, android.R.layout.simple_spinner_item);
         gender_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sp_gender.setAdapter(gender_adapter);
-
         /*************************** SPINNER WORK ***************************/
         ArrayAdapter<CharSequence> work_adapter = ArrayAdapter.createFromResource(getActivity(), R.array.work_type, android.R.layout.simple_spinner_item);
         work_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -149,67 +240,34 @@ public class UserInformationsFragment extends Fragment
 
         int check = 0;
 
+
         // get edit text values
         username             = eT_username.getText().toString();
         String temp_height   = eT_height.getText().toString();
         String temp_weight   = eT_weight.getText().toString();
         String temp_age      = eT_age.getText().toString();
 
-        String user_info_default = DataPreferences.readPreference(context, DataPreferences.PREFS_USER_INFO, DataPreferences.PUF_KEY);
-        String[] info = user_info_default.split(",");
 
         // check edit text values
         if(username.length() <= 0)
         {
-            if(!user_info_default.equals("no user info"))
-            {
-                eT_username.setText(info[0]);
-            }
-            else
-            {
                 check = 1;
                 Toast.makeText(context, "Enter username", Toast.LENGTH_SHORT).show();
-            }
         }
         else if(temp_height.length() <= 0 || Integer.parseInt(temp_height)<20)
         {
-            if(!user_info_default.equals("no user info"))
-            {
-                eT_height.setText(info[6]);
-            }
-            else
-            {
-                check = 1;
-                Toast.makeText(context, "Enter correct height", Toast.LENGTH_SHORT).show();
-            }
-
+            check = 1;
+            Toast.makeText(context, "Enter correct height", Toast.LENGTH_SHORT).show();
         }
         else if(temp_weight.length() <= 0 || Integer.parseInt(temp_weight)<5)
         {
-            if(!user_info_default.equals("no user info"))
-            {
-                eT_weight.setText(info[7]);
-            }
-            else
-            {
-                check = 1;
-                Toast.makeText(context, "Enter correct weight", Toast.LENGTH_SHORT).show();
-            }
-
+            check = 1;
+            Toast.makeText(context, "Enter correct weight", Toast.LENGTH_SHORT).show();
         }
         else if(temp_age.length() <= 0 || Integer.parseInt(temp_age)<=0)
         {
-            if(!user_info_default.equals("no user info"))
-            {
-                eT_age.setText(info[5]);
-
-            }
-            else
-            {
-                check = 1;
-                Toast.makeText(context, "Enter correct age", Toast.LENGTH_SHORT).show();
-            }
-
+            check = 1;
+            Toast.makeText(context, "Enter correct age", Toast.LENGTH_SHORT).show();
         }
 
         Log.d(" CHECK ------------------------>", temp_height + "-" + Integer.toString(temp_height.length()));
@@ -221,7 +279,6 @@ public class UserInformationsFragment extends Fragment
             age    = Integer.valueOf(temp_age);
             height = Integer.valueOf(temp_height);
             weight = Integer.valueOf(temp_weight);
-
         }
 
         return check;
@@ -335,14 +392,6 @@ public class UserInformationsFragment extends Fragment
         return total_calories_needed;
     }
 
-    private void setEditTextUserValues(View view, String user_info_default)
-    {
-
-
-
-
-
-    }
 
     @Override
     public void onAttach(Activity activity)

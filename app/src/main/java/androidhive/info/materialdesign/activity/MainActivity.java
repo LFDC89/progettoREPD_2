@@ -32,6 +32,8 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
     private Toolbar mToolbar;
     private FragmentDrawer drawerFragment;
 
+    private static int update = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -57,6 +59,7 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
         }
         else
         {
+            update = 1;
             // display the first navigation drawer view on app launch
             displayView(0);
         }

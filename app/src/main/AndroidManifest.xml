@@ -42,7 +42,6 @@
             android:configChanges="orientation|screenSize"
             android:label="@string/title_activity_food_details_activity_home" >
         </activity>
-
         <activity
             android:name=".activity.FoodDetailsActivityCompare"
             android:configChanges="orientation|screenSize"
@@ -53,7 +52,10 @@
             android:configChanges="orientation|screenSize"
             android:label="@string/title_activity_compare" >
         </activity>
-
+        <activity
+            android:name=".activity.InsertInitialInformations"
+            android:label="@string/title_activity_insert_initial_informations" >
+        </activity>
     </application>
 
 </manifest>
