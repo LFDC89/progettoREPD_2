@@ -66,7 +66,7 @@ public class UserInformationsFragment extends Fragment
 
         // set custom font on activity title
         TextView InsertInformations_title_textView = (TextView) rootView.findViewById(R.id.activity_insert_informations_title);
-        Typeface CF_insert_informations_title = Typeface.createFromAsset(context.getAssets(),"fonts/a song for jennifer.ttf");
+        Typeface CF_insert_informations_title = Typeface.createFromAsset(context.getAssets(), "fonts/a song for jennifer.ttf");
         InsertInformations_title_textView.setTypeface(CF_insert_informations_title);
 
         // set spinners values
@@ -75,11 +75,9 @@ public class UserInformationsFragment extends Fragment
         // BUTTON
         btn_calculate = (Button) rootView.findViewById(R.id.insert_info_submit_button);
 
-        btn_calculate.setOnClickListener(new View.OnClickListener()
-        {
+        btn_calculate.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
 
                 int check;
 
@@ -89,13 +87,12 @@ public class UserInformationsFragment extends Fragment
 
                 Log.d(" CHECK ------------------------> ", Integer.toString(check));
 
-                if (check == 0)
-                {
+                if (check == 0) {
                     double total_calories = calculate();
                     Toast.makeText(context, "TOTAL CALORIES: " + Double.toString(total_calories), Toast.LENGTH_SHORT).show();
 
                     // store user informations with SharedPreferences
-                    String user_info =  username + ","
+                    String user_info = username + ","
                             + total_calories + ","
                             + gender + ","
                             + work + ","
@@ -158,30 +155,64 @@ public class UserInformationsFragment extends Fragment
         String temp_weight   = eT_weight.getText().toString();
         String temp_age      = eT_age.getText().toString();
 
+        String user_info_default = DataPreferences.readPreference(context, DataPreferences.PREFS_USER_INFO, DataPreferences.PUF_KEY);
+        String[] info = user_info_default.split(",");
 
         // check edit text values
         if(username.length() <= 0)
         {
-            check = 1;
-            Toast.makeText(context, "Enter username", Toast.LENGTH_SHORT).show();
+            if(!user_info_default.equals("no user info"))
+            {
+                eT_username.setText(info[0]);
+            }
+            else
+            {
+                check = 1;
+                Toast.makeText(context, "Enter username", Toast.LENGTH_SHORT).show();
+            }
         }
         else if(temp_height.length() <= 0 || Integer.parseInt(temp_height)<20)
         {
-            check = 1;
-            Toast.makeText(context, "Enter correct height", Toast.LENGTH_SHORT).show();
+            if(!user_info_default.equals("no user info"))
+            {
+                eT_height.setText(info[6]);
+            }
+            else
+            {
+                check = 1;
+                Toast.makeText(context, "Enter correct height", Toast.LENGTH_SHORT).show();
+            }
+
         }
         else if(temp_weight.length() <= 0 || Integer.parseInt(temp_weight)<5)
         {
-            check = 1;
-            Toast.makeText(context, "Enter correct weight", Toast.LENGTH_SHORT).show();
+            if(!user_info_default.equals("no user info"))
+            {
+                eT_weight.setText(info[7]);
+            }
+            else
+            {
+                check = 1;
+                Toast.makeText(context, "Enter correct weight", Toast.LENGTH_SHORT).show();
+            }
+
         }
         else if(temp_age.length() <= 0 || Integer.parseInt(temp_age)<=0)
         {
-            check = 1;
-            Toast.makeText(context, "Enter correct age", Toast.LENGTH_SHORT).show();
+            if(!user_info_default.equals("no user info"))
+            {
+                eT_age.setText(info[5]);
+
+            }
+            else
+            {
+                check = 1;
+                Toast.makeText(context, "Enter correct age", Toast.LENGTH_SHORT).show();
+            }
+
         }
 
-        Log.d( " CHECK ------------------------>", temp_height + "-" + Integer.toString(temp_height.length()) );
+        Log.d(" CHECK ------------------------>", temp_height + "-" + Integer.toString(temp_height.length()));
         Log.d( " CHECK ------------------------>", temp_weight + "-" + Integer.toString(temp_weight.length()) );
         Log.d(" CHECK ------------------------>", temp_age + "-" + Integer.toString(temp_age.length()));
 
@@ -302,6 +333,15 @@ public class UserInformationsFragment extends Fragment
         }
 
         return total_calories_needed;
+    }
+
+    private void setEditTextUserValues(View view, String user_info_default)
+    {
+
+
+
+
+
     }
 
     @Override

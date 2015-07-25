@@ -56,7 +56,7 @@ public class PrintUserInformations extends android.support.v4.app.Fragment {
 
             // putting data into Text Views
             username_textView.setText("USERNAME:  " + username);
-            kcal_tot_textView.setText("\nDAILY KCAL REQUIREMENTS\n\n" + kcal_tot + "kcal");
+            kcal_tot_textView.setText("\nDAILY KCAL REQUIREMENTS\n\n" + kcal_tot + " kcal");
             gender_textView.setText("GENDER:  " + gender);
             work_textView.setText("WORK:  " + work);
             phys_act_textView.setText("PHYS. ACTIVITY:  " + phy_act);
