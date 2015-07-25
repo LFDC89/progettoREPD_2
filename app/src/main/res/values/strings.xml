@@ -11,7 +11,7 @@
     <string name="nav_item_home">Home</string>
     <string name="nav_item_search">Search</string>
     <string name="nav_item_print_user_info">User Informations</string>
-    <string name="nav_item_insert_user_info">Insert User Informations</string>
+    <string name="nav_item_insert_user_info">Update User Informations</string>
     <string name="nav_item_compare">Compare Foods</string>
     <string name="nav_item_credits">Credits</string>
 

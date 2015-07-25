@@ -76,7 +76,7 @@ public class FoodDetailsActivityHome extends ActionBarActivity
 
             for (int i = 0; i<temp_nut_list.size(); i++)
             {
-                current_nutrient = (Double.parseDouble(temp_nut_list.get(i).getValue())*current_portion)/100;
+                current_nutrient = rounding((Double.parseDouble(temp_nut_list.get(i).getValue())*current_portion)/100);
                 if (temp_nut_list.get(i).getName().equals("Carbohydrate, by difference"))
                 {
                     // build the texts

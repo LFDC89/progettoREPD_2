@@ -53,7 +53,7 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
         if (user_info.equals("no user info"))
         {
             // display the first navigation drawer view on app launch
-            displayView(2);
+            displayView(3);
         }
         else
         {

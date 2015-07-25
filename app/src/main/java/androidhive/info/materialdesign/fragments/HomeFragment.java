@@ -197,7 +197,7 @@ public class HomeFragment extends Fragment
         lipids_value_textview        .setText(lipids_string);
 
         kcal_consumed_textView .setText(String.valueOf(kcal_consumed));
-        kcal_total_textView    .setText(String.valueOf(kcal_total));
+        kcal_total_textView    .setText(String.valueOf(kcal_total) + " kcal");
 
         double percentage = (double) kcal_consumed/kcal_total * 100;
 

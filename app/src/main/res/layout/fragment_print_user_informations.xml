@@ -13,7 +13,7 @@
         android:textSize="30dp"
         android:textColor="@color/textColorPrimary"
         android:textStyle="normal"
-        android:text="User Informations Page"
+        android:text="User Informations"
         />
 
     <TextView

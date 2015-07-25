@@ -37,30 +37,33 @@ public class PrintUserInformations extends android.support.v4.app.Fragment {
         TextView phys_act_textView = (TextView) rootView.findViewById(R.id.fragment_print_user_informations_physical_activity);
         TextView kcal_tot_textView = (TextView) rootView.findViewById(R.id.fragment_print_user_informations_kcal_total);
 
+
         // getting data from shared preferences
         String temp_user_info = DataPreferences.readPreference(rootView.getContext(), DataPreferences.PREFS_USER_INFO, DataPreferences.PUI_KEY);
         String[] info = temp_user_info.split(",");
 
-        // putting data into strings
-        String username = info[0];
-        String kcal_tot = info[1];
-        String gender   = info[2];
-        String work     = info[3];
-        String phy_act  = info[4];
-        String age      = info[5];
-        String height   = info[6];
-        String weight   = info[7];
+        if(!temp_user_info.equals("no user info"))
+        {
+            // putting data into strings
+            String username = info[0];
+            String kcal_tot = info[1];
+            String gender = info[2];
+            String work = info[3];
+            String phy_act = info[4];
+            String age = info[5];
+            String height = info[6];
+            String weight = info[7];
 
-        // putting data into Text Views
-        username_textView.setText("USERNAME:  "+ username);
-        kcal_tot_textView.setText("\nDAILY KCAL REQUIREMENTS\n\n" + kcal_tot + "kcal");
-        gender_textView.setText("GENDER:  " + gender);
-        work_textView.setText("WORK:  " + work);
-        phys_act_textView.setText("PHYS. ACTIVITY:  " + phy_act);
-        age_textView.setText("AGE:  " + age);
-        height_textView.setText("HEIGHT:  " + height);
-        weight_textView.setText("WEIGHT:  " + weight);
-
+            // putting data into Text Views
+            username_textView.setText("USERNAME:  " + username);
+            kcal_tot_textView.setText("\nDAILY KCAL REQUIREMENTS\n\n" + kcal_tot + "kcal");
+            gender_textView.setText("GENDER:  " + gender);
+            work_textView.setText("WORK:  " + work);
+            phys_act_textView.setText("PHYS. ACTIVITY:  " + phy_act);
+            age_textView.setText("AGE:  " + age);
+            height_textView.setText("HEIGHT:  " + height + " cm");
+            weight_textView.setText("WEIGHT:  " + weight + " kg");
+        }
         // custom font definition
         Typeface custom_font = Typeface.createFromAsset(getActivity().getAssets(),"fonts/Girls_Have_Many Secrets.ttf");
         Typeface custom_font_title = Typeface.createFromAsset(getActivity().getAssets(),"fonts/a song for jennifer.ttf");

@@ -11,7 +11,7 @@
         android:layout_marginRight="5dp"
         android:layout_marginLeft="5dp"
         android:layout_centerHorizontal="true"
-        android:textSize="15dp"
+        android:textSize="20dp"
         android:textColor="@color/textColorPrimary"
         android:text="To compare two foods, select them from this list, clicking on ADD TO COMPARE button."/>
 

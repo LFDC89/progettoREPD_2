@@ -4,6 +4,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,6 +24,8 @@ import androidhive.info.materialdesign.classes.Food;
 import androidhive.info.materialdesign.classes.FoodsData;
 import androidhive.info.materialdesign.classes.Nutrient;
 import androidhive.info.materialdesign.fragments.CompareSearchFragment;
+import androidhive.info.materialdesign.fragments.CreditsFragment;
+import androidhive.info.materialdesign.fragments.SearchFragment;
 
 public class FoodDetailsActivityCompare extends ActionBarActivity
 {
@@ -56,7 +61,7 @@ public class FoodDetailsActivityCompare extends ActionBarActivity
 
             // putting food's name into text view
             TextView foodNameHome = (TextView) findViewById(R.id.activity_food_details_compare_textview_foodsName);
-            Typeface future_font = Typeface.createFromAsset(getAssets(),"fonts/future.ttf");
+            Typeface future_font = Typeface.createFromAsset(getAssets(),"fonts/a song for jennifer.ttf");
             foodNameHome.setTypeface(future_font);
 
             foodNameHome.setText(food_name_home);
@@ -123,8 +128,6 @@ public class FoodDetailsActivityCompare extends ActionBarActivity
 
         String position_string = Integer.toString(position);
 
-        //Toast msg = Toast.makeText(getApplicationContext(),compare_indexes,Toast.LENGTH_SHORT);
-        //msg.show();
         // check variable needs to verify that it's added only one food or two
         if(check == 1)
         {
@@ -135,6 +138,9 @@ public class FoodDetailsActivityCompare extends ActionBarActivity
 
         else if(check == 0)
         {
+            String message = "Primo cibo aggiunto. Torna indietro e seleziona un altro cibo!";
+            Toast msg = Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG);
+            msg.show();
             check = 1;
         }
 
