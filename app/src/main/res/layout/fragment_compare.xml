@@ -1,7 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="androidhive.info.materialdesign.fragments.CompareSearchFragment">
+    tools:context="dicarlo.fierimonte.infoodrmations.fragments.CompareSearchFragment">
 
     <TextView
         android:id="@+id/fragment_compare_explanation"

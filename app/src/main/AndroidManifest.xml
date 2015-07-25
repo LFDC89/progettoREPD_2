@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="androidhive.info.materialdesign" >
+    package="dicarlo.fierimonte.infoodrmations" >
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/icona_hamburger"
+        android:icon="@mipmap/food_icon"
         android:label="@string/app_name"
         android:theme="@style/MyMaterialTheme" >
 
         <!-- Start Page Activity -->
         <activity
-            android:name=".activity.StartPage"
+            android:name="dicarlo.fierimonte.infoodrmations.activity.StartPage"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,7 +21,7 @@
 
         <!-- Main Activity -->
         <activity
-            android:name=".activity.MainActivity"
+            android:name="dicarlo.fierimonte.infoodrmations.activity.MainActivity"
             android:configChanges="orientation|screenSize"
             android:label="@string/app_name"
             android:windowSoftInputMode="stateHidden" >
@@ -29,33 +29,40 @@
 
         <!-- FoodDetailsActivity -->
         <activity
-            android:name=".activity.FoodDetailsActivitySearch"
+            android:name="dicarlo.fierimonte.infoodrmations.activity.FoodDetailsActivitySearch"
+            android:windowSoftInputMode="stateAlwaysHidden"
             android:configChanges="orientation|screenSize"
             android:label="@string/title_activity_food_details"
-            android:parentActivityName=".activity.MainActivity" >
+            android:parentActivityName="dicarlo.fierimonte.infoodrmations.activity.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="androidhive.info.materialdesign.activity.MainActivity" />
+                android:value="dicarlo.fierimonte.infoodrmations.activity.MainActivity" />
         </activity>
         <activity
-            android:name=".activity.FoodDetailsActivityHome"
+            android:name="dicarlo.fierimonte.infoodrmations.activity.FoodDetailsActivityHome"
             android:configChanges="orientation|screenSize"
             android:label="@string/title_activity_food_details_activity_home" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="dicarlo.fierimonte.infoodrmations.activity.MainActivity" />
         </activity>
         <activity
-            android:name=".activity.FoodDetailsActivityCompare"
+            android:name="dicarlo.fierimonte.infoodrmations.activity.FoodDetailsActivityCompare"
             android:configChanges="orientation|screenSize"
             android:label="@string/title_activity_food_details_activity_compare" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="dicarlo.fierimonte.infoodrmations.activity.MainActivity" />
         </activity>
         <activity
-            android:name=".activity.Compare"
+            android:name="dicarlo.fierimonte.infoodrmations.activity.Compare"
             android:configChanges="orientation|screenSize"
             android:label="@string/title_activity_compare" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="dicarlo.fierimonte.infoodrmations.activity.MainActivity" />
         </activity>
-        <activity
-            android:name=".activity.InsertInitialInformations"
-            android:label="@string/title_activity_insert_initial_informations" >
-        </activity>
+
     </application>
 
 </manifest>

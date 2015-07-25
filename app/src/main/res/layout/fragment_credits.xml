@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="androidhive.info.materialdesign.fragments.CreditsFragment">
+    tools:context="dicarlo.fierimonte.infoodrmations.fragments.CreditsFragment">
 
     <TextView
         android:id="@+id/fragment_credits_title"
