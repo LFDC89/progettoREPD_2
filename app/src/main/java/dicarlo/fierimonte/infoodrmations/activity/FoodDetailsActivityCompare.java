@@ -129,7 +129,7 @@ public class FoodDetailsActivityCompare extends ActionBarActivity
 
         else if(check == 0)
         {
-            String message = "Primo cibo aggiunto. Torna indietro e seleziona un altro cibo!";
+            String message = "First food added. Go back and select another one!";
             Toast msg = Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG);
             msg.show();
             check = 1;

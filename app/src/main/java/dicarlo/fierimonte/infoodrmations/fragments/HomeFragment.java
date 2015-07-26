@@ -180,7 +180,7 @@ public class HomeFragment extends Fragment
         String username = info[0];
         TextView username_textView = (TextView) rootView.findViewById(R.id.fragment_home_welcome);
         username_textView.setTypeface(CF_nutrients_home);
-        String welcome = "Benvenuto " + username + "!";
+        String welcome = "Welcome " + username + "!";
         username_textView.setText(welcome);
 
         // GET TOTAL USER KCAL

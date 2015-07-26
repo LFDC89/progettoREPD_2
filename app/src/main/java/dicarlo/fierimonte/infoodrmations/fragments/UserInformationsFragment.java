@@ -17,6 +17,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.w3c.dom.Text;
+
 import dicarlo.fierimonte.infoodrmations.R;
 import dicarlo.fierimonte.infoodrmations.activity.FoodDetailsActivityHome;
 import dicarlo.fierimonte.infoodrmations.activity.MainActivity;
@@ -71,6 +73,11 @@ public class UserInformationsFragment extends Fragment
         TextView InsertInformations_title_textView = (TextView) rootView.findViewById(R.id.activity_insert_informations_title);
         Typeface CF_insert_informations_title = Typeface.createFromAsset(context.getAssets(), "fonts/a song for jennifer.ttf");
         InsertInformations_title_textView.setTypeface(CF_insert_informations_title);
+
+        // set custom font on subtitle
+        TextView InsertInformations_subtitle_textView = (TextView) rootView.findViewById(R.id.activity_insert_informations_subtitle);
+        Typeface custom_font_subtitle = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Girls_Have_Many Secrets.ttf");
+        InsertInformations_subtitle_textView.setTypeface(custom_font_subtitle);
 
         final String user_info_insert = DataPreferences.readPreference(rootView.getContext(),DataPreferences.PREFS_USER_INFO,DataPreferences.PUI_KEY);
 

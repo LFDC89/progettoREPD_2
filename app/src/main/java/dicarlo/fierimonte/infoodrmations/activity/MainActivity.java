@@ -89,9 +89,19 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
             return true;
         }
 
-        if( id == R.id.action_settings)
+        if( id == R.id.action_credits)
         {
             CreditsFragment fragment = new CreditsFragment();
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.container_body, fragment);
+            fragmentTransaction.commit();
+            return true;
+        }
+
+        if( id == R.id.action_home)
+        {
+            HomeFragment fragment = new HomeFragment();
             FragmentManager fragmentManager = getSupportFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.container_body, fragment);

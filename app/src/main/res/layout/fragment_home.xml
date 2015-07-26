@@ -118,7 +118,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="5dp"
-                android:text="Proteins"
+                android:text="PROTEINS"
                 android:textColor="@color/white"
                 android:textStyle="bold"
                 />
@@ -150,7 +150,7 @@
                 android:layout_centerHorizontal="true"
                 android:textColor="@color/white"
                 android:layout_marginTop="5dp"
-                android:text="Carboidrats"
+                android:text="CARBOHYDRATES"
                 android:textStyle="bold"
                 />
 
@@ -182,7 +182,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="5dp"
                 android:textColor="@color/white"
-                android:text="Lipids"
+                android:text="LIPIDS"
                 android:textStyle="bold"
                 />
 
