@@ -18,6 +18,13 @@
         app:showAsAction="ifRoom" />
 
     <item
+        android:id="@+id/action_reset"
+        android:title="@string/action_reset"
+        android:orderInCategory="100"
+        android:icon="@drawable/New_list_day"
+        app:showAsAction="ifRoom" />
+
+    <item
         android:id="@+id/action_credits"
         android:title="@string/action_credits"
         android:orderInCategory="100"

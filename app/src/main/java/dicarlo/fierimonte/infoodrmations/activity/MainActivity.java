@@ -11,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import dicarlo.fierimonte.infoodrmations.classes.DataPreferences;
 import dicarlo.fierimonte.infoodrmations.fragments.CompareSearchFragment;
@@ -107,6 +108,11 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
             fragmentTransaction.replace(R.id.container_body, fragment);
             fragmentTransaction.commit();
             return true;
+        }
+
+        if( id == R.id.action_reset)
+        {
+            Toast.makeText(getApplicationContext(),"Qua Marco ci deve fare il reset!",Toast.LENGTH_LONG).show();
         }
         return super.onOptionsItemSelected(item);
     }
