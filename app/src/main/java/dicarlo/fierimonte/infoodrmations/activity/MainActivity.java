@@ -113,6 +113,7 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
         if( id == R.id.action_reset)
         {
             Toast.makeText(getApplicationContext(),"Qua Marco ci deve fare il reset!",Toast.LENGTH_LONG).show();
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }

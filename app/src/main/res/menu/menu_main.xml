@@ -21,7 +21,7 @@
         android:id="@+id/action_reset"
         android:title="@string/action_reset"
         android:orderInCategory="100"
-        android:icon="@drawable/New_list_day"
+        android:icon="@drawable/newday"
         app:showAsAction="ifRoom" />
 
     <item
